@@ -1,0 +1,100 @@
+/* Basic reset for the navBar container */
+.navBar {
+    display: flex;
+    justify-content: space-between; /* Space out the left and right sides */
+    align-items: center; /* Vertically center the items */
+    background-color: #121619; /* Dark background color for the nav bar */
+    padding: 10px 30px; /* Some padding for spacing */
+}
+
+/* Left side where the logo is */
+.leftSide {
+    display: flex;
+    align-items: center;
+}
+
+.leftSide img {
+    height: 70px; /* Set a fixed height for the logo */
+}
+
+/* Right side where the navigation links are */
+.rightSide {
+    display: flex; /* Flexbox for horizontal layout */
+    gap: 70px; /* Space between the links */
+    align-items: center;
+}
+
+/* Styling the links */
+.rightSide a,
+.hiddenLinks a {
+    color: white; /* White text for contrast against the dark background */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 20px; /* Increase font size */
+    transition: color 0.5s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for links */
+.rightSide a:hover,
+.hiddenLinks a:hover {
+    color: #ff9800; /* Change link color on hover */
+}
+
+/* Initially hide the menu icon */
+.rightSide button {
+    display: none;
+}
+
+/* Hide the hiddenLinks by default */
+.hiddenLinks {
+    display: none;
+}
+
+/* Responsive Design: Show the menu icon on smaller screens */
+@media (max-width: 768px) {
+    .rightSide a {
+        display: none; /* Hide the links in the right side */
+    }
+
+    .rightSide button {
+        display: block; /* Show the menu button */
+    }
+
+    .leftSide img {
+        display: block; /* Keep the logo visible */
+    }
+
+    /* When the menu is open, hide the logo and show the links */
+    #open img {
+        display: none; /* Hide the logo */
+    }
+
+    #open .hiddenLinks {
+        display: flex; /* Show the links */
+        gap: 50px; /* Space out the links as they appear on a larger screen */
+    }
+}
+
+/* Normal display for screens wider than 768px (more than 50% of a typical screen width) */
+@media (min-width: 768px) {
+    .navBar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .rightSide a {
+        display: block;
+    }
+
+    .rightSide button {
+        display: none; /* Hide the menu button */
+    }
+
+    .leftSide img {
+        display: block; /* Show the logo */
+    }
+
+    .hiddenLinks {
+        display: none; /* Hidden links should remain hidden */
+    }
+}
+
